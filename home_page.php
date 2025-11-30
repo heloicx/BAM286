@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<link rel="stylesheet" href="h1.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  background-color: #0d0b0bff;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+
+nav {
+  float: left;
+  width: 30%;
+  background: #2dafe2ff;
+  padding: 20px;
+  min-height: calc(100vh - 130px);
+}
+
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #ffffffff;
+  min-height: calc(100vh - 130px); 
+}
+
+
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+footer {
+  background-color: #41e9ecff;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>JANSHIEN PAUSAL</h2>
+<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+
+<header>
+  <h2>Cities</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="home_page.php?page=london">London</a></li>
+      <li><a href="home_page.php?page=paris">Paris</a></li>
+      <li><a href="home_page.php?page=tokyo">Tokyo</a></li>
+     
+    </ul>
+  </nav>
+  
+  <article>
+   <!-- content area -->
+
+
+
+    <?php
+        if (isset($_GET['page'])){
+            $page=$_GET['page'];
+
+            switch ($page){
+                case 'london':
+                    include 'london.php';
+                    break;
+                    
+                    case 'paris':
+                        include 'paris.php';
+                        break;
+                        
+                        case 'tokyo':
+                            include 'tokyo.php';
+                            break;
+                            
+
+
+    
+  
+
+
+            }
+
+        }
+    ?>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>
